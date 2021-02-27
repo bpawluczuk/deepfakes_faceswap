@@ -11,6 +11,13 @@ from keras.layers.convolutional import Conv2D
 from keras.optimizers import Adam
 from pixel_shuffler import PixelShuffler
 
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+
 optimizer = Adam(lr=5e-5, beta_1=0.5, beta_2=0.999)
 
 IMAGE_SHAPE = (64, 64, 3)
